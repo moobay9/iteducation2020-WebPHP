@@ -1,1 +1,69 @@
 @use '../base/vars'as *;
+
+
+.timeline{
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.timeline_item{
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    padding: 20px;
+    background-color: #fff;
+    
+    & + .timeline_item{
+        margin-top: 20px;
+    }
+    
+    .timeline_item_icon{
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    
+    .timeline_item_main{
+        padding: 0 20px;
+        
+        .timeline_item_main_head{
+            display: flex;
+            gap: 20px;
+            
+            h3{
+                font-weight: bold;
+            }
+        }
+    }
+    
+    .timeline_item_main_body{
+        margin-top: 20px;
+    }
+    
+    .timeline_item_main_footer{
+        margin-top: 20px;
+        
+        ul{
+            display: flex;
+            gap: 20px;
+            
+            li{
+                a{
+                    &:hover{
+                        opacity: .5;
+                    }
+                }
+            }
+        }
+        
+        .reply_icon{
+            width: 18px;
+            height: 18px;
+        }
+        
+        .retweet_icon{
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
