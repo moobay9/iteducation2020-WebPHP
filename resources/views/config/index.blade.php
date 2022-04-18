@@ -20,6 +20,42 @@
             @endif
         </div>
         
+        <div class="pageitem">
+            <h3>ユーザー名</h3>
+            <form action="#" method="POST">
+                @csrf
+                <input type="text" name="name" id="name" value="絶滅危惧種">
+                @if ($errors->has('name'))
+                    <p class="error_text"><span>{{$errors->first('name')}}</span></p>
+                @endif
+                
+                <button cla type="submit">保存</button>
+            </form>
+        </div>
+        
+        <div class="pageitem">
+            <h3>アプロフィール画像の登録</h3>
+            <form action="#" method="POST">
+                @csrf
+                <div class="user_profile_wrap">
+                    {{-- 画像が登録されていれば表示 --}}
+                    <div class="user_profile_img">
+                        <img src="{{ asset('common/img/cacatua.jpg') }}" alt="">
+                    </div>
+                    {{-- /画像が登録されていれば表示 --}}
+                    <div class="user_profile_upload">
+                        <label for="icon">画像をアップロード</label>
+                        <input type="file" name="icon" id="icon">
+                    </div>
+                </div>
+                @if ($errors->has('icon'))
+                    <p class="error_text"><span>{{$errors->first('icon')}}</span></p>
+                @endif
+                
+                <button cla type="submit">保存</button>
+            </form>
+        </div>
+        
         
     </div>
     

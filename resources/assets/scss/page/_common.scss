@@ -154,6 +154,10 @@
         background-color: #fff;
         padding: 20px;
         
+        & + .pageitem{
+            margin-top: 30px;
+        }
+        
         h3{
             font-weight: bold;
             margin-bottom: 20px;
@@ -161,6 +165,13 @@
         
         label + label{
             margin-left: 30px;
+        }
+        
+        input[type=text]{
+            width: 100%;
+            padding: .5em 1em;
+            @include rem(16);
+            border: solid 1px #ccc;
         }
         
         input[type=radio]{
@@ -252,4 +263,41 @@
              }
          }
      }
+}
+
+
+
+
+.user_profile_wrap{
+    display: flex;
+    align-items: center;
+    
+    .user_profile_img{
+        width: 60px;
+        
+        img{
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+    
+    .user_profile_upload{
+        padding-left: 20px;
+        
+        label{
+            border: solid 1px #ccc;
+            padding: 10px;
+            
+            &:hover{
+                background-color: #ccc;
+                color: #fff;
+            }
+        }
+    }
+    
+    input[type=file] {
+        visibility: hidden;
+    }
 }
