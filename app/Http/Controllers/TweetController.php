@@ -10,6 +10,14 @@ use App\Models\User;
 
 class TweetController extends Controller
 {
+    public function timeline()
+    {
+        $user = Auth::user();
+        $timelines = Tweet::timeline($user)->get();
+
+        return view('dashboard', ['user' => $user, 'timelines' => $timelines]);
+    }
+
     public function user_detail(User $user)
     {
         $followed = false;
@@ -22,6 +30,7 @@ class TweetController extends Controller
         }
         return view('user/page', ['user' => $user, 'followed' => $followed]);
     }
+
 
     public function tweet(TweetRequest $request)
     {
