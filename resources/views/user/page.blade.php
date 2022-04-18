@@ -9,6 +9,22 @@
         <div class="user_head">
             <img src="{{ asset('common/img/cacatua.jpg') }}" alt="">
         </div>
+        <div class="user_profile">
+            <div class="user_profile_head">
+                <h3>絶滅危惧種</h3>
+                <p>@takanashi66</p>
+                
+                <div class="btn_follow">
+                    <a href="#">フォロー</a>
+                </div>
+            </div>
+            <div class="user_profile_foot">
+                <ul>
+                    <li><strong>100</strong>フォロー中</li>
+                    <li><strong>100</strong>フォロワー</li>
+                </ul>
+            </div>
+        </div>
     </div>
     
     <div class="timeline">

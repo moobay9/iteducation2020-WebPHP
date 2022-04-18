@@ -201,6 +201,55 @@
              height: 200px;
              object-fit: cover;
              border-radius: 50%;
+             border: solid 3px #fff;
+         }
+     }
+     
+     .user_profile_head{
+         display: flex;
+         align-items: center;
+         gap: 20px;
+         padding: 10px 20px;
+         
+         h3{
+             @include rem(20);
+             font-weight: bold;
+         }
+         
+         p{
+             @include rem(18);
+         }
+     }
+     
+    .btn_follow {
+        margin-left: auto;
+        width: 100px;
+    
+        a {
+            margin-top: 20px;
+            width: 100px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(29, 155, 240);
+            color: #fff;
+        }
+    }
+     
+     .user_profile_foot{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 0 20px 20px;
+        
+         ul{
+             display: flex;
+             gap: 20px;
+             
+             li{
+                 
+             }
          }
      }
 }
