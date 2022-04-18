@@ -29,7 +29,7 @@ Route::get('/form', function () {
 })->name('form');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect('/top');
 })->middleware(['auth'])->name('dashboard');
 
 

@@ -7,7 +7,7 @@
     
     <div class="user">
         <div class="user_head">
-            <img src="{{ asset('common/img/cacatua.jpg') }}" alt="">
+            <img src="{{ asset('storage/'.$user->icon) }}" alt="">
         </div>
         <div class="user_profile">
             <div class="user_profile_head">
@@ -54,7 +54,7 @@
             {{-- tweet --}}
             <div class="timeline_item" data-aos="fade-left" data-aos-delay="<?= $key * 100 ?>">
                 <div class="timeline_item_icon">
-                    <a href="{{ url('/'.$timeline->user->at_name) }}"><img src="{{ asset('common/img/cacatua.jpg') }}" alt=""></a>
+                    <a href="{{ url('/'.$timeline->user->at_name) }}"><img src="{{ asset('storage/'.$user->icon) }}" alt=""></a>
                 </div>
                 <div class="timeline_item_main">
                     <div class="timeline_item_main_head">

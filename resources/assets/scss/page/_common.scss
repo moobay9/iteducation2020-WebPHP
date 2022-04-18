@@ -262,11 +262,11 @@
      
     .btn_follow {
         margin-left: auto;
-        width: 100px;
+        width: 150px;
     
-        a {
+        button{
             margin-top: 20px;
-            width: 100px;
+            width: 150px;
             height: 40px;
             display: flex;
             justify-content: center;
@@ -369,3 +369,4 @@
         @include rem(15);
     }
 }
+
