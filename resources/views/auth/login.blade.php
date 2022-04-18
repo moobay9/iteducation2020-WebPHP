@@ -52,5 +52,12 @@
                 </x-button>
             </div>
         </form>
+        <br>
+        <hr>
+        <br>
+        <div class="btn_new" style="text-align: center;">
+            <a href="/register">新規登録</a>
+        </div>
     </x-auth-card>
+    
 </x-guest-layout>
