@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('icon', 255)->default('icon/noimage.png')->comment('ユーザーアイコン')->unique()->after('is_public');
+            $table->string('icon', 255)->default('icon/noimage.png')->comment('ユーザーアイコン')->after('is_public');
         });
     }
 
