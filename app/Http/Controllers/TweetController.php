@@ -12,9 +12,15 @@ class TweetController extends Controller
 {
     public function user_detail(User $user)
     {
-        // var_dump($user->follow->count());
-        // var_dump($user->follower->count());
-        return view('user/page');
+        $followed = false;
+
+        $login_user = Auth::user();
+        foreach ($user->follower as $follower) {
+            if ($login_user->id === $follower->user_id) {
+                $followed = true;
+            }
+        }
+        return view('user/page', ['user' => $user, 'followed' => $followed]);
     }
 
     public function tweet(TweetRequest $request)

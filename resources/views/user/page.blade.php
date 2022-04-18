@@ -11,17 +11,38 @@
         </div>
         <div class="user_profile">
             <div class="user_profile_head">
-                <h3>絶滅危惧種</h3>
-                <p>@takanashi66</p>
+                <h3>{{ $user->name }}</h3>
+                <p>{{ '@'.$user->at_name }}</p>
                 
-                <div class="btn_follow">
-                    <a href="#">フォロー</a>
-                </div>
+                @if( ! $followed)
+                    @if (Auth::user()->id !== $user->id)
+                    <div class="btn_follow">
+                        <form method="post" action="{{ route('follow.subscribe') }}">
+                            @csrf
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                            <input type="hidden" name="target_id" value="{{ $user->id }}">
+                            <button type="submit">フォロー</button>
+                        </form>
+                    </div>
+                    @endif
+                @else
+                    @if (Auth::user()->id !== $user->id)
+                        <div class="btn_follow">
+                            <form method="post" action="{{ route('follow.unsubscribe') }}">
+                                @csrf
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                <input type="hidden" name="target_id" value="{{ $user->id }}">
+                                <button type="submit">フォローを外す</button>
+                            </form>
+                        </div>
+                    @endif
+                @endif
+
             </div>
             <div class="user_profile_foot">
                 <ul>
-                    <li><strong>100</strong>フォロー中</li>
-                    <li><strong>100</strong>フォロワー</li>
+                    <li><strong>{{ $user->follow->count() }}</strong>フォロー中</li>
+                    <li><strong>{{ $user->follower->count() }}</strong>フォロワー</li>
                 </ul>
             </div>
         </div>

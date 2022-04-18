@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\TweetController;
+use App\Http\Controllers\FollowController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +39,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/config/public/update', [ConfigController::class, 'public_update'])->name('config.public.update');
 
     Route::post('/tweet', [TweetController::class, 'tweet'])->name('tweet');
+    Route::post('follow/subscribe', [FollowController::class, 'subscribe'])->name('follow.subscribe');
+    Route::post('follow/unsubscribe', [FollowController::class, 'unsubscribe'])->name('follow.unsubscribe');
 });
 
 
