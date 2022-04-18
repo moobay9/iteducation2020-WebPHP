@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\TweetController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +28,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/config', [ConfigController::class, 'index'])->name('config');
-Route::post('/config/public/update', [ConfigController::class, 'public_update'])->name('config.public.update');
+
+// 認証が必要な処理群
+Route::group(['middleware' => ['auth']], function(){
+
+    Route::get('/config', [ConfigController::class, 'index'])->name('config');
+    Route::post('/config/public/update', [ConfigController::class, 'public_update'])->name('config.public.update');
+
+    Route::post('/tweet', [TweetController::class, 'tweet'])->name('tweet');
+});
 
 require __DIR__.'/auth.php';
