@@ -18,16 +18,15 @@ use App\Http\Controllers\FollowController;
 |
 */
 
+Route::get('/welcome', function(){ return view('welcome'); });
+
 Route::get('/', function () {
-    // return view('welcome');
     return redirect('/top');
 });
 
 Route::get('/form', function () {
     return view('form');
 })->name('form');
-
-Route::get('/top', [TweetController::class, 'timeline'])->name('top');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -36,6 +35,7 @@ Route::get('/dashboard', function () {
 
 // 認証が必要な処理群
 Route::group(['middleware' => ['auth']], function(){
+    Route::get('/top', [TweetController::class, 'timeline'])->name('top');
 
     Route::get('/config', [ConfigController::class, 'index'])->name('config');
     Route::post('/config/public/update', [ConfigController::class, 'public_update'])->name('config.public.update');
@@ -44,6 +44,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/config/icon/update', [ConfigController::class, 'icon_update'])->name('config.icon.update');
 
     Route::post('/tweet', [TweetController::class, 'tweet'])->name('tweet');
+    Route::post('/retweet', [TweetController::class, 'retweet'])->name('retweet');
     Route::post('follow/subscribe', [FollowController::class, 'subscribe'])->name('follow.subscribe');
     Route::post('follow/unsubscribe', [FollowController::class, 'unsubscribe'])->name('follow.unsubscribe');
 });
