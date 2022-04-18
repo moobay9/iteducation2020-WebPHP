@@ -13,8 +13,19 @@ class TweetController extends Controller
 {
     public function timeline()
     {
+        $timelines = [];
         $user = Auth::user();
-        $timelines = Tweet::timeline($user)->get();
+        $_timelines = Tweet::timeline($user)->get();
+
+        foreach ($_timelines as $timeline) {
+            // if ( ! $timeline->retweet_id) {
+            //     $timeline->retweet = false;
+            // } else {
+            //     // $timeline = Tweet::find($timeline->retweet_id);
+            //     $timeline->retweet = true;
+            // }
+            $timelines[] = $timeline;
+        }
 
         return view('dashboard', ['user' => $user, 'timelines' => $timelines]);
     }
