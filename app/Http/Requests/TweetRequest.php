@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ConfigPublicRequest extends FormRequest
+class TweetRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class ConfigPublicRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,7 +24,7 @@ class ConfigPublicRequest extends FormRequest
     public function rules()
     {
         return [
-            'is_public' => ['required', 'boolean'],
+            'body' => ['required', 'max_length:140'],
         ];
     }
 
@@ -36,7 +36,7 @@ class ConfigPublicRequest extends FormRequest
     public function attributes()
     {
         return [
-            'is_public' => 'ツイート公開設定',
+            'body' => 'ツイート',
         ];
     }
 }
