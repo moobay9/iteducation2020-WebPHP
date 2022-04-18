@@ -24,9 +24,9 @@ Route::get('/', function () {
     return redirect('/top');
 });
 
-Route::get('/form', function () {
-    return view('form');
-})->name('form');
+// Route::get('/form', function () {
+//     return view('form');
+// })->name('form');
 
 Route::get('/dashboard', function () {
     return redirect('/top');
@@ -44,7 +44,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/config/icon/update', [ConfigController::class, 'icon_update'])->name('config.icon.update');
 
     Route::post('/tweet', [TweetController::class, 'tweet'])->name('tweet');
+    Route::post('/reply_tweet', [TweetController::class, 'reply_tweet'])->name('replytweet');
     Route::post('/retweet', [TweetController::class, 'retweet'])->name('retweet');
+    Route::post('/reply', [TweetController::class, 'reply'])->name('reply');
     Route::post('follow/subscribe', [FollowController::class, 'subscribe'])->name('follow.subscribe');
     Route::post('follow/unsubscribe', [FollowController::class, 'unsubscribe'])->name('follow.unsubscribe');
 });

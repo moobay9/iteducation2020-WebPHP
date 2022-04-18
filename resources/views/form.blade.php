@@ -9,24 +9,26 @@
         
         <div class="tweet">
             <div class="tweet_icon">
-                <a href="/takanashi66"><img src="{{ asset('common/img/cacatua.jpg') }}" alt=""></a>
+                <a href="/takanashi66"><img src="{{ asset('storage/'.$user->icon) }}" alt=""></a>
             </div>
             <div class="tweet_main">
-                <form action="{{ route('tweet') }}" method="POST">
+                <form action="{{ route('replytweet') }}" method="POST">
                     @csrf
-                    <textarea name="body" id="tweet" cols="30" rows="3" placeholder="いまどうしてる？"></textarea>
+                    <textarea name="body" id="tweet" cols="30" rows="3">{{'@'.$reply->at_name}} </textarea>
                     @if ($errors->has('body'))
                         <p class="error_text"><span>{{$errors->first('body')}}</span></p>
                     @endif
                     
-                    <div class="retweet_item">
+                    <input type="hidden" name="parent_id" value="{{$reply_tweet->id}}">
+                    
+                    {{-- <div class="retweet_item">
                         <div class="retweet_item_icon">
                             <img src="{{ asset('common/img/cacatua.jpg') }}" alt="">
                         </div>
                         <div class="retweet_item_body">
-                            リツイート・返信される文章リツイート・返信される文章リツイート・返信される文章リツイート・返信される文章リツイート・返信される文章リツイート・返信される文章
+                            {{ $reply_tweet->body }}
                         </div>
-                    </div>
+                    </div> --}}
                     
                     <div class="tweet_footer">
                         {{-- <label class="upload">
