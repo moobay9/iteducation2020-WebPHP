@@ -14,8 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return redirect('/top');
 });
+
+Route::get('/top', function () {
+    return view('dashboard');
+})->name('top');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
