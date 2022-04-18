@@ -24,6 +24,9 @@ Route::get('/', function () {
     return redirect('/top');
 });
 
+Route::get('/form', function () {
+    return view('form');
+})->name('form');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
