@@ -12,6 +12,8 @@ class TweetController extends Controller
 {
     public function user_detail(User $user)
     {
+        // var_dump($user->follow->count());
+        // var_dump($user->follower->count());
         return view('user/page');
     }
 
