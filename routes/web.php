@@ -20,6 +20,11 @@ Route::get('/', function () {
     return redirect('/top');
 });
 
+// ユーザーページ
+Route::get('/user', function () {
+    return view('user.page');
+});
+
 Route::get('/top', function () {
     return view('dashboard');
 })->name('top');
