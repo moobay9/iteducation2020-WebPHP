@@ -22,9 +22,9 @@
         
         <div class="pageitem">
             <h3>名前</h3>
-            <form action="#" method="POST">
+            <form action="{{ route('config.name.update') }}" method="POST">
                 @csrf
-                <input type="text" name="name" id="name" value="絶滅危惧種">
+                <input type="text" name="name" id="name" value="{{$user->name}}">
                 @if ($errors->has('name'))
                     <p class="error_text"><span>{{$errors->first('name')}}</span></p>
                 @endif
@@ -35,9 +35,9 @@
         
         <div class="pageitem">
             <h3>ユーザー名</h3>
-            <form action="#" method="POST">
+            <form action="{{ route('config.at_name.update') }}" method="POST">
                 @csrf
-                <div class="input_wrap"><input type="text" name="at_name" id="at_name" value="takanashi66"></div>
+                <div class="input_wrap"><input type="text" name="at_name" id="at_name" value="{{$user->at_name}}"></div>
                 @if ($errors->has('at_name'))
                     <p class="error_text"><span>{{$errors->first('at_name')}}</span></p>
                 @endif
