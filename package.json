@@ -1,4 +1,4 @@
-{
+{   
     "private": true,
     "scripts": {
         "dev": "npm run development",
@@ -10,9 +10,24 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "browser-sync": "^2.27.4",
+        "browser-sync-webpack-plugin": "^2.3.0",
+        "cross-env": "^7.0.3",
+        "imagemin-keep-folder": "^5.3.2",
+        "imagemin-mozjpeg": "^9.0.0",
+        "imagemin-pngquant": "^9.0.2",
+        "imagemin-webp": "^6.0.0",
+        "postcss-sort-media-queries": "^3.11.12",
+        "sass": "^1.35.1",
+        "sass-loader": "^12.1.0",
         "axios": "^0.25",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"
-    }
+    },
+    "browserslist": [
+        "defaults",
+        "not ie > 10",
+        "not dead"
+    ]
 }
