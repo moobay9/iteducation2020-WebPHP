@@ -24,7 +24,7 @@ class ConfigAtNameRequest extends FormRequest
     public function rules()
     {
         return [
-            'at_name' => ['required', 'max_length:255'],
+            'at_name' => ['required', 'max_length:255', 'unique:users,at_name'],
         ];
     }
     
