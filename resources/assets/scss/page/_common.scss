@@ -81,6 +81,7 @@
     grid-template-columns: 48px 1fr;
     padding: 20px;
     background-color: #fff;
+    line-height: 1.7;
     
     & + .timeline_item{
         margin-top: 20px;
@@ -326,5 +327,45 @@
     
     input[type=file] {
         visibility: hidden;
+    }
+}
+
+
+
+
+.retweet_item{
+    display: flex;
+    padding: 10px;
+    border:  solid 1px #ccc;
+    
+    .retweet_item_icon{
+        width: 30px;
+        
+        img {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+            border-radius: 50%;
+        }  
+    }
+    
+    .retweet_item_body{
+        flex: 1;
+        padding: 0 0 0 20px;
+        line-height: 1.7;
+    }
+}
+
+.btn_return{
+    a{
+        display: block;
+        width: 100px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ccc;
+        border-radius: 30px;
+        @include rem(15);
     }
 }

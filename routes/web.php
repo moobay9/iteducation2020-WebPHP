@@ -23,6 +23,10 @@ Route::get('/', function () {
     return redirect('/top');
 });
 
+Route::get('/form', function () {
+    return view('form');
+})->name('form');
+
 Route::get('/top', [TweetController::class, 'timeline'])->name('top');
 
 Route::get('/dashboard', function () {
