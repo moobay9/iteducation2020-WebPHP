@@ -25,6 +25,7 @@
         "tailwindcss": "^3.0.18"
     },
     "dependencies": {
+        "aos": "^2.3.4",
         "postcss-sort-media-queries": "^4.2.1"
     }
 }

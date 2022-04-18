@@ -8,7 +8,7 @@
     @auth('web')
     <div class="tweet">
         <div class="tweet_icon">
-            <img src="{{ asset('common/img/cacatua.jpg') }}" alt="">
+            <a href="/takanashi66"><img src="{{ asset('common/img/cacatua.jpg') }}" alt=""></a>
         </div>
         <div class="tweet_main">
             <form action="{{ route('tweet') }}" method="POST">
@@ -32,17 +32,21 @@
     
     <div class="timeline">
         
-        @for ($i = 1; $i < 10; $i++)
+        @php
+            $index = 0;
+        @endphp
+        @for ($i = 1; $i < 20; $i++)
+        
             
         {{-- tweet --}}
-        <div class="timeline_item">
+        <div class="timeline_item" data-aos="fade-left" data-aos-delay="<?= $index * 100 ?>">
             <div class="timeline_item_icon">
-                <img src="{{ asset('common/img/cacatua.jpg') }}" alt="">
+                <a href="/takanashi66"><img src="{{ asset('common/img/cacatua.jpg') }}" alt=""></a>
             </div>
             <div class="timeline_item_main">
                 <div class="timeline_item_main_head">
-                    <h3>絶滅危惧種</h3>
-                    <span>@takanashi66</span>
+                    <h3><a href="/takanashi66">絶滅危惧種</a></h3>
+                    <span><a href="/takanashi66">@takanashi66</a></span>
                     <time>13分</time>
                 </div>
                 <div class="timeline_item_main_body">
@@ -67,6 +71,9 @@
         </div>
         {{-- /tweet --}}
         
+        @php
+            $index++;
+        @endphp
         @endfor
         
     </div>
