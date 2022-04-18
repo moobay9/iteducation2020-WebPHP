@@ -33,6 +33,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/{user:name?}', [TweetController::class, 'user_detail']);
+
 
 // 認証が必要な処理群
 Route::group(['middleware' => ['auth']], function(){
