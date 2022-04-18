@@ -1,1 +1,17 @@
 @use '../base/vars'as *;
+
+.user_head{
+    img{
+        animation:10s linear infinite rotation;
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
