@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/config/at_name/update', [ConfigController::class, 'at_name_update'])->name('config.at_name.update');
 
     Route::post('/tweet', [TweetController::class, 'tweet'])->name('tweet');
+    Route::post('/retweet', [TweetController::class, 'retweet'])->name('retweet');
     Route::post('follow/subscribe', [FollowController::class, 'subscribe'])->name('follow.subscribe');
     Route::post('follow/unsubscribe', [FollowController::class, 'unsubscribe'])->name('follow.unsubscribe');
 });
