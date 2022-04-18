@@ -47,20 +47,23 @@
         </div>
         
         <div class="pageitem">
-            <h3>アプロフィール画像の登録</h3>
-            <form action="#" method="POST">
+            <h3>プロフィール画像の登録</h3>
+            <form action="{{ route('config.icon.update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="user_profile_wrap">
                     {{-- 画像が登録されていれば表示 --}}
+                    @if ($user->icon)
                     <div class="user_profile_img">
-                        <img src="{{ asset('common/img/cacatua.jpg') }}" alt="">
+                        <img src="{{ asset('storage/'.$user->icon) }}" alt="">
                     </div>
+                    @endif
                     {{-- /画像が登録されていれば表示 --}}
                     <div class="user_profile_upload">
                         <label for="icon">画像をアップロード</label>
                         <input type="file" name="icon" id="icon">
                     </div>
                 </div>
+                <br>
                 @if ($errors->has('icon'))
                     <p class="error_text"><span>{{$errors->first('icon')}}</span></p>
                 @endif
