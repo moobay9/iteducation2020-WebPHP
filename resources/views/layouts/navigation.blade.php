@@ -53,6 +53,7 @@
                 @endauth
 
                 @guest
+                    <a style="margin-right: 20px" href="{{ route('register') }}">新規登録</a>
                     <a href="{{ route('login') }}">ログイン</a>
                 @endguest
             </div>
