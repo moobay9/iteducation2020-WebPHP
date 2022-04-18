@@ -39,6 +39,6 @@ Route::group(['middleware' => ['auth']], function(){
 });
 
 
-Route::get('/{user:name?}', [TweetController::class, 'user_detail']);
-
 require __DIR__.'/auth.php';
+
+Route::get('/{user:name?}', [TweetController::class, 'user_detail']);
