@@ -1,5 +1,11 @@
 @use '../base/vars'as *;
 
+.error_text{
+    color: #f00;
+    @include rem(11);
+    margin-top: 5px;
+}
+
 .tweet{
     max-width: 800px;
     margin: 20px auto;
