@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ConfigPublicRequest;
 use App\Http\Requests\ConfigNameRequest;
 use App\Http\Requests\ConfigAtNameRequest;
+use App\Http\Requests\ConfigIconRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class ConfigController extends Controller
 {
@@ -42,6 +44,17 @@ class ConfigController extends Controller
         $formdata = $request->all();
         $user = Auth::user();
         $user->at_name = $formdata['at_name'];
+        $user->save();
+
+        return redirect(route('config'));
+    }
+    
+    public function icon_update(ConfigIconRequest $request)
+    {
+        $file_path = $request->file('icon')->storePublicly('icon', 'public');
+        
+        $user = Auth::user();
+        $user->icon = $file_path;
         $user->save();
 
         return redirect(route('config'));

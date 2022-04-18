@@ -41,6 +41,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/config/public/update', [ConfigController::class, 'public_update'])->name('config.public.update');
     Route::post('/config/name/update', [ConfigController::class, 'name_update'])->name('config.name.update');
     Route::post('/config/at_name/update', [ConfigController::class, 'at_name_update'])->name('config.at_name.update');
+    Route::post('/config/icon/update', [ConfigController::class, 'icon_update'])->name('config.icon.update');
 
     Route::post('/tweet', [TweetController::class, 'tweet'])->name('tweet');
     Route::post('/retweet', [TweetController::class, 'retweet'])->name('retweet');
