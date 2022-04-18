@@ -22,6 +22,8 @@ class Tweet extends Model
      */
     public function scopeTimeline($query, $user)
     {
-        $query->where('user_id', $user->id)->orWhereIn('user_id', $user->follow);
+        $query->where('user_id', $user->id)
+            // ->orWhereIn('user_id', $user->follow)
+            ->orderBy('id', 'desc');
     }
 }

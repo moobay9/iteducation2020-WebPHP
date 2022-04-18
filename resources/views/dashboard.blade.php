@@ -31,7 +31,6 @@
     @endauth
     
     <div class="timeline">
-
         @foreach($timelines as $key => $timeline)
             {{-- tweet --}}
             <div class="timeline_item" data-aos="fade-left" data-aos-delay="<?= $key * 100 ?>">
@@ -66,7 +65,6 @@
             </div>
             {{-- /tweet --}}
         @endforeach
-        
     </div>
     
 </x-app-layout>

@@ -18,12 +18,12 @@ use App\Http\Controllers\FollowController;
 |
 */
 
+Route::get('/welcome', function(){ return view('welcome'); });
+
 Route::get('/', function () {
-    // return view('welcome');
     return redirect('/top');
 });
 
-Route::get('/top', [TweetController::class, 'timeline'])->name('top');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -32,6 +32,7 @@ Route::get('/dashboard', function () {
 
 // 認証が必要な処理群
 Route::group(['middleware' => ['auth']], function(){
+    Route::get('/top', [TweetController::class, 'timeline'])->name('top');
 
     Route::get('/config', [ConfigController::class, 'index'])->name('config');
     Route::post('/config/public/update', [ConfigController::class, 'public_update'])->name('config.public.update');
