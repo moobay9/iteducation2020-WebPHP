@@ -22,8 +22,13 @@ class Tweet extends Model
      */
     public function scopeTimeline($query, $user)
     {
+        $follows = [];
+        foreach ($user->follow as $follow) {
+            $follows[] = $follow->relation_user_id;
+        }
+        
         $query->where('user_id', $user->id)
-            // ->orWhereIn('user_id', $user->follow)
+            ->orWhereIn('user_id', $follows)
             ->orderBy('id', 'desc');
     }
 }
