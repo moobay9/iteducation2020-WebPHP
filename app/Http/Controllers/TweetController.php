@@ -15,17 +15,12 @@ class TweetController extends Controller
     {
         $timelines = [];
         $user = Auth::user();
-        $_timelines = Tweet::timeline($user)->get();
+        $timelines = Tweet::timeline($user)->get();
 
-        foreach ($_timelines as $timeline) {
-            // if ( ! $timeline->retweet_id) {
-            //     $timeline->retweet = false;
-            // } else {
-            //     // $timeline = Tweet::find($timeline->retweet_id);
-            //     $timeline->retweet = true;
-            // }
-            $timelines[] = $timeline;
-        }
+        // foreach ($_timelines as $timeline) {
+
+        //     $timelines[] = $timeline;
+        // }
 
         return view('dashboard', ['user' => $user, 'timelines' => $timelines]);
     }
@@ -33,6 +28,7 @@ class TweetController extends Controller
     public function user_detail(User $user)
     {
         $followed = false;
+        $timelines = [];
 
         $login_user = Auth::user();
         foreach ($user->follower as $follower) {
@@ -40,7 +36,19 @@ class TweetController extends Controller
                 $followed = true;
             }
         }
-        return view('user/page', ['user' => $user, 'followed' => $followed]);
+
+        $_timelines = Tweet::timeline($user)->get();
+
+        foreach ($_timelines as $timeline)
+        {
+            if ( ! $timeline->retweet_id) {
+                $timelines[] = $timeline;
+            } else {
+                $timelines[] = Tweet::find($timeline->retweet_id);
+            }
+        }
+
+        return view('user/page', ['user' => $user, 'followed' => $followed, 'timelines' => $timelines]);
     }
 
 
