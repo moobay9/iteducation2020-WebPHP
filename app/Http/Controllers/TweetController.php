@@ -6,9 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\Tweet;
 use App\Http\Requests\TweetRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class TweetController extends Controller
 {
+    public function user_detail(User $user)
+    {
+        return view('user/page');
+    }
+
     public function tweet(TweetRequest $request)
     {
         $user = Auth::user();
@@ -17,6 +23,6 @@ class TweetController extends Controller
         $tweet->body    = $request->input('body');
         $tweet->save();
 
-        redirect(route('top'));
+        return redirect(route('top'));
     }
 }
