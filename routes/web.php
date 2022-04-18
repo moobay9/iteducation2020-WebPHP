@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ConfigController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,5 +26,8 @@ Route::get('/top', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/config', [ConfigController::class, 'index'])->name('config');
+Route::post('/config/public/update', [ConfigController::class, 'public_update'])->name('config.public.update');
 
 require __DIR__.'/auth.php';
